@@ -19,3 +19,7 @@ img{
 .info {
     font-size:20px;
 }
+
+.ui-autocomplete {
+    z-index: 999999 !important;
+}

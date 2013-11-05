@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <button class="pull-right btn btn-danger" data-bind="click: remove">
+                <i class="glyphicon glyphicon-trash"></i><span>Slett</span>
+            </button>
+            <h1 class="panel-title">Været for <span data-bind="text: location"></span></h1>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-1 temperature">
+                    <span data-bind="text: currentWeather.temperature"></span><span>°</span>
+                </div>
+                <div class="col-sm-4 weather">
+                    <img data-bind="attr: { src: currentWeather.symbolUrl, alt: currentWeather.description }" />
+                </div>
+                <div class="col-sm-5">
+                    <div class="info">
+                        <p>Nedbør</p>
+                        <p data-bind="text: formatPrecipitation(currentWeather)"></p>
+                    </div>
+                    <div class="info">
+                        <p>Vind:</p>
+                        <p data-bind="text: formatWind(currentWeather)"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row container">
+            <a class="btn btn-default" data-bind="click: toggleShowForecast">
+                <span data-bind="visible: isForecastVisible()">
+                    <i class="glyphicon glyphicon-minus"></i>Skjul langtidsvarsel
+                </span>
+                <span data-bind="visible: !isForecastVisible()">
+                    <i class="glyphicon glyphicon-plus"></i>Vis langtidsvarsel
+                </span>
+            </a>
+        </div>
+        <div class="panel panel-primary" data-bind="visible: isForecastVisible(), foreach: forecasts">
+            <div class="panel-heading">
+                <h2 class="panel-title" data-bind="text: moment($data.date).format('dddd DD/MM/YYYY')"></h2>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tid</th>
+                        <th>Varsel</th>
+                        <th>Temperatur</th>
+                        <th>Nedbør</th>
+                        <th>Vind</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: periods">
+                    <tr>
+                        <td data-bind="text: $root.formatDate($data)">kl 0-6</td>
+                        <td>
+                            <img data-bind="attr: { src: symbolUrl, alt: description }" /></td>
+                        <td><span data-bind="text: temperature"></span>°</td>
+                        <td data-bind="text: $root.formatPrecipitation($data)">1.0 – 1.9 mm</td>
+                        <td data-bind="text: $root.formatWind($data)">Flau vind, 2 m/s fra øst-sørøst</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
