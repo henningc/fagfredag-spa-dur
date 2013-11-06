@@ -32,8 +32,12 @@
             that.isForecastVisible(!that.isForecastVisible());
         };
 
-        that.remove = function() {
-            app.trigger('location:removed', that.url);
+        that.remove = function () {
+            var message = 'Er du sikker på at du vil slette ' + that.location();
+            app.showMessage(message, 'Slette', ['Ja', 'Nei']).done(function (result) {
+                if (result === 'Ja')
+                    app.trigger('location:removed', that.url);
+            });
         };
     };
 

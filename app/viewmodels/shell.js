@@ -4,7 +4,7 @@
         activate: function () {
             router.map([
                 { route: '', title: 'Mine byer', moduleId: 'viewmodels/cities', nav: true },
-                { route: 'sted*url', title: 'City', moduleId: 'viewmodels/city', nav: false }
+                { route: '*url', title: 'City', moduleId: 'viewmodels/city', nav: false }
             ]).buildNavigationModel();
             
             return router.activate();

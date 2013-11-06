@@ -23,3 +23,7 @@ img{
 .ui-autocomplete {
     z-index: 999999 !important;
 }
+
+button > i + span {
+    margin-left: 5px;
+}

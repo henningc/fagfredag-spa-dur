@@ -4,7 +4,7 @@
             <button class="pull-right btn btn-danger" data-bind="click: remove">
                 <i class="glyphicon glyphicon-trash"></i><span>Slett</span>
             </button>
-            <h1 class="panel-title">Været for <span data-bind="text: location"></span></h1>
+            <h1 class="panel-title"><a data-bind="attr: { href: '#' + url }">Været for <span data-bind="text: location"></span></a></h1>
         </div>
         <div class="panel-body">
             <div class="row">
@@ -54,8 +54,7 @@
                 <tbody data-bind="foreach: periods">
                     <tr>
                         <td data-bind="text: $root.formatDate($data)">kl 0-6</td>
-                        <td>
-                            <img data-bind="attr: { src: symbolUrl, alt: description }" /></td>
+                        <td><img data-bind="attr: { src: symbolUrl, alt: description }" /></td>
                         <td><span data-bind="text: temperature"></span>°</td>
                         <td data-bind="text: $root.formatPrecipitation($data)">1.0 – 1.9 mm</td>
                         <td data-bind="text: $root.formatWind($data)">Flau vind, 2 m/s fra øst-sørøst</td>
