@@ -1,12 +1,13 @@
 ﻿requirejs.config({
-    paths: {
+    paths: {        
         'text': '../lib/require/text',
         'durandal':'../lib/durandal/js',
         'plugins' : '../lib/durandal/js/plugins',
         'transitions' : '../lib/durandal/js/transitions',
         'knockout': '../lib/knockout/knockout-2.3.0',
         'bootstrap': '../lib/bootstrap/js/bootstrap',
-        'jquery': '../lib/jquery/jquery-1.10.2'
+        'jquery': '../lib/jquery/jquery-1.10.2',
+        'lib': '../lib'
     },
     shim: {
         'bootstrap': {
