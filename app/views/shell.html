@@ -10,11 +10,16 @@
                     <a data-bind="attr: { href: hash }, html: title"></a>
                 </li>
             </ul>
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input id="location-search" type="text" class="form-control" placeholder="Søk...">
+              </div>
+            </form>
             <div class="loader pull-right" data-bind="css: { active: router.isNavigating }">
                 <i class="icon-spinner icon-2x icon-spin"></i>
             </div>
         </div>
     </nav>
-    
+
     <div class="container" data-bind="router: { transition:'entrance', cacheViews:true }"></div>
 </div>
